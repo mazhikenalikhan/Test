@@ -40,7 +40,9 @@ public class RestTestGet {
                 .when()
                 .get("https://reqres.in/api/users?per_page=12")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .assertThat()
+                .body("data", hasSize(12));
     }
     @Test
     public void getListWithOffset(){
@@ -144,7 +146,9 @@ public class RestTestGet {
                 .when()
                 .get("https://reqres.in/api/resource?per_page=12")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .assertThat()
+                .body("data", hasSize(12));
     }
     @Test
     public void getListWithOffsetResources(){
